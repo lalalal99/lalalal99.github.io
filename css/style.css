@@ -9,16 +9,12 @@
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     background-color: var(--main-bg-color);
     color: var(--text-color);
-
-
 }
 
-.main-container {
-    max-width: 80%;
-}
 
 .navbar {
     font-weight: bold;
@@ -49,6 +45,51 @@ body {
     color: var(--main-bg-color);
 }
 
+
 main {
+    max-width: 80%;
     padding: 1rem;
+    display: grid;
+    margin: auto;
+    gap: 1rem;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(7, auto);
+}
+
+main img {
+    grid-row: 1 / -1;
+    grid-column: 2 / 3;
+    justify-self: center;
+    height: 100%;
+}
+
+.text-wrapper {
+    display: subgrid;
+}
+
+.hello {
+    grid-row: 2;
+    font-size: medium;
+}
+
+.johnSmith {
+    grid-row: 3;
+    font-size: 5rem;
+}
+
+.freelance {
+    grid-row: 4;
+}
+
+.motto {
+    grid-row: 5;
+}
+
+main button {
+    grid-row: 6;
+    max-width: fit-content;
+}
+
+footer {
+    background-color: var(--c1);
 }
