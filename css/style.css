@@ -3,6 +3,7 @@
   --dark-bg-color: #282a39;
   --highlight-color: #f87c58;
   --text-color: #ffffff;
+  --default-font: "Didact Gothic", sans-serif;
 }
 
 a {
@@ -13,10 +14,9 @@ a {
 body {
   padding: 0;
   margin: 0;
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
-  font-family: "Didact Gothic", sans-serif;
   background-color: var(--light-bg-color);
   color: var(--text-color);
+  font-family: var(--default-font);
 }
 
 .main-wrapper {
@@ -61,7 +61,7 @@ body {
 }
 
 button {
-  font-family: sans-serif;
+  font-family: var(--default-font);
   text-decoration: none;
   padding: 0.5rem;
   padding-left: 1.5rem;
@@ -71,6 +71,15 @@ button {
   cursor: pointer;
   color: var(--text-color);
   background-color: var(--highlight-color);
+  width: fit-content;
+  height: fit-content;
+  transform-origin: left;
+  transition: transform 175ms cubic-bezier(1, -0.66, 0.23, 1.63);
+}
+
+button:hover,
+button:focus {
+  transform: scale(1.1);
 }
 
 main {
@@ -116,6 +125,8 @@ main img {
 .motto {
   grid-row: 5;
   margin-top: 1rem;
+  font-size: 1.2em;
+  line-height: 1.4em;
 }
 
 main button {
@@ -140,65 +151,82 @@ footer {
 }
 
 .secondary-wrapper :nth-child(1) {
-  font-size: 2rem;
+  font-size: 3rem;
   grid-row-start: 1;
   grid-row-end: 3;
 }
 
-.secondary-wrapper :nth-child(2) {
+.lets-talk {
   grid-column: 1;
   grid-row-start: 4;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: baseline;
 }
 
-.secondary-wrapper :nth-child(3) {
+.lets-talk::after {
+  content: "";
+  height: 1rem;
+  width: 1rem;
+  background-color: var(--highlight-color);
+  margin-left: 2rem;
+  width: 60%;
+  height: 2px;
+}
+
+.email {
   grid-column: 1;
   grid-row: 6;
+  font-size: 2.5rem;
+  color: var(--highlight-color);
+  font-weight: bold;
 }
 .secondary-wrapper :nth-child(4) {
   grid-column: 1;
   grid-row: 7;
+  font-size: 1.5rem;
 }
 .secondary-wrapper :nth-child(5) {
   grid-column: 1;
   grid-row: 8;
+  font-size: 1.5rem;
 }
 
 .secondary-wrapper :nth-child(6) {
   grid-column-start: 2;
   grid-row-start: 1;
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 .secondary-wrapper :nth-child(7) {
   grid-column-start: 2;
   grid-row-start: 3;
-  font-size: 0.7rem;
+  font-size: 1.2em;
 }
 .secondary-wrapper :nth-child(8) {
   grid-column: 2;
   grid-row: 4;
-  font-size: 0.7rem;
+  font-size: 1.2em;
 }
 
 .secondary-wrapper .info-name,
 .secondary-wrapper .info-email,
 .secondary-wrapper .info-website {
   display: grid;
-  font-size: 1rem;
   grid-template-columns: 30% 10% 60%;
-  margin: 0.6rem;
 }
 
 .secondary-wrapper .info-name {
   grid-column: 2;
   grid-row: 5;
+  margin-top: 2.3rem;
 }
 
 .secondary-wrapper .info-name :nth-child(1),
 .secondary-wrapper .info-name :nth-child(2),
 .secondary-wrapper .info-name :nth-child(3) {
-  font-size: 0.7rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 
@@ -215,13 +243,13 @@ footer {
 .secondary-wrapper .info-email {
   grid-column: 2;
   grid-row: 6;
+  align-content: center;
 }
 
 .secondary-wrapper .info-email :nth-child(1),
 .secondary-wrapper .info-email :nth-child(2),
 .secondary-wrapper .info-email :nth-child(3) {
-  font-size: 0.7rem;
-  margin: 0;
+  font-size: 1.2rem;
 }
 
 .secondary-wrapper .info-email :nth-child(2) {
@@ -242,7 +270,7 @@ footer {
 .secondary-wrapper .info-website :nth-child(1),
 .secondary-wrapper .info-website :nth-child(2),
 .secondary-wrapper .info-website :nth-child(3) {
-  font-size: 0.7rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 
@@ -259,6 +287,64 @@ footer {
 .secondary-wrapper button {
   grid-column: 2;
   grid-row: 8;
-  width: fit-content;
-  height: fit-content;
+  margin-top: 0.7rem;
+  width: 30%;
+}
+
+.third-wrapper {
+  display: grid;
+  margin: auto;
+  max-width: 80%;
+  grid-template-columns: auto auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrapper :first-child {
+  font-size: 3rem;
+  font-weight: bold;
+  max-width: 30%;
+}
+
+.wrapper :nth-child(2) {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+.grid {
+  margin-top: 2.7rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  gap: 1.5em;
+}
+
+.pt1,
+.pt2,
+.pt3,
+.pt4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1.7em;
+}
+
+.pt1 {
+  background-color: var(--highlight-color);
+  max-width: 50%;
+}
+
+.pt1 :first-child {
+  font-size: 2rem;
+  line-height: 1.5em;
+}
+.pt1 :nth-child(2) {
+  font-size: 1.2rem;
+}
+.pt1 :nth-child(3) {
+  font-size: 1.2rem;
+  margin-top: 1rem;
 }
