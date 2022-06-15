@@ -291,17 +291,30 @@ footer {
   width: 30%;
 }
 
+.third-wrapper::before {
+  content: "";
+  height: 21.3rem;
+  width: 100%;
+  transform-origin: bottom;
+  /* top: 50px; */
+  margin-top: -7rem;
+  left: 0;
+  z-index: -1;
+  background-color: var(--dark-bg-color);
+  position: absolute;
+}
 .third-wrapper {
   display: grid;
   margin: auto;
   max-width: 80%;
   margin-top: 7rem;
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
   grid-template-columns: 50% 50%;
 }
 
 .third-wrapper img {
   height: 100%;
+  margin-top: 5rem;
 }
 
 .wrapper {
@@ -327,7 +340,6 @@ footer {
   margin-top: 2.7rem;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: auto auto;
   gap: 3em;
 }
 
@@ -335,13 +347,14 @@ footer {
 .pt2,
 .pt3,
 .pt4 {
+  border-color: var(--light-bg-color);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  align-content: center;
   width: fit-content;
   padding: 3em;
-  /* max-width: 80%; */
+  max-width: 80%;
   box-shadow: 0 4px 8px 0 var(--dark-bg-color),
     0 6px 20px 0 var(--dark-bg-color);
 }
@@ -357,63 +370,158 @@ footer {
   background-color: var(--highlight-color);
 }
 
-.pt1 {
-  margin: auto;
-}
-
-.pt1 :first-child {
-  font-size: 2rem;
-  line-height: 1.5em;
-}
-.pt1 :nth-child(2) {
-  font-size: 1.2rem;
-}
-.pt1 :nth-child(3) {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-}
-
-.pt2 {
-  margin: auto;
-}
-.pt2 :first-child {
-  font-size: 2rem;
-  line-height: 1.5em;
-}
-.pt2 :nth-child(2) {
-  font-size: 1.2rem;
-}
-.pt2 :nth-child(3) {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-}
-
-.pt3 {
-  margin: auto;
-}
-.pt3 :first-child {
-  font-size: 2rem;
-  line-height: 1.5em;
-}
-.pt3 :nth-child(2) {
-  font-size: 1.2rem;
-}
-.pt3 :nth-child(3) {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-}
-
-.pt4 {
-  margin: auto;
-}
+.pt1 :first-child,
+.pt2 :first-child,
+.pt3 :first-child,
 .pt4 :first-child {
   font-size: 2rem;
   line-height: 1.5em;
 }
+
+.pt1 :nth-child(2),
+.pt2 :nth-child(2),
+.pt3 :nth-child(2),
 .pt4 :nth-child(2) {
   font-size: 1.2rem;
+  margin-top: 2rem;
+  max-width: 80%;
+  line-height: 2rem;
 }
+
+.pt1 :nth-child(3),
+.pt2 :nth-child(3),
+.pt3 :nth-child(3),
 .pt4 :nth-child(3) {
   font-size: 1.2rem;
-  margin-top: 1rem;
+  margin-top: 3rem;
+}
+
+.fourth-wrapper {
+  margin-top: 5rem;
+  background-color: var(--dark-bg-color);
+}
+
+.logos {
+  max-width: 80%;
+  margin: auto;
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.logos img {
+  height: 3rem;
+}
+
+.fourth-wrapper .wrapper {
+  margin-top: 10rem;
+  max-width: 80%;
+  margin: auto;
+  margin-top: 10rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.sub {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.dashed-line {
+  content: "";
+  margin-top: 3rem;
+  /* color: var(--highlight-color); */
+  border: 1px dashed var(--highlight-color);
+}
+
+.last-wrapper {
+  max-width: 80%;
+  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  /* grid-template-rows: ; */
+}
+
+.last-wrapper__p1 {
+  font-size: 3rem;
+  margin-top: auto;
+}
+
+.last-wrapper__p2 {
+  font-size: 1.2rem;
+  grid-column-start: 1;
+  max-width: 70%;
+  line-height: 2rem;
+}
+
+.last-wrapper__p3 {
+  font-size: 3rem;
+  grid-column-start: 1;
+  margin-top: 5rem;
+}
+
+.last-wrapper__p4 {
+  font-size: 1.2rem;
+  grid-column-start: 1;
+  max-width: 70%;
+  line-height: 2rem;
+}
+
+.last-wrapper__div1,
+.last-wrapper__div2,
+.last-wrapper__div3 {
+  font-size: 2rem;
+  margin-top: 3rem;
+}
+
+.last-wrapper__div1 {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+
+.last-wrapper__div2 {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.last-wrapper__div3 {
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+
+.progressbar {
+  margin-top: 1.5rem;
+  background-color: var(--text-color);
+  border-radius: 13px;
+}
+
+.progressbar > .last-wrapper__div1__progressbar {
+  background-color: var(--highlight-color);
+  width: 80%;
+  /* Adjust with JavaScript */
+  height: 6px;
+  border-radius: 10px;
+}
+
+.progressbar > .last-wrapper__div2__progressbar {
+  background-color: var(--highlight-color);
+  width: 90%;
+  /* Adjust with JavaScript */
+  height: 6px;
+  border-radius: 10px;
+}
+
+.progressbar > .last-wrapper__div3__progressbar {
+  background-color: var(--highlight-color);
+  width: 85%;
+  /* Adjust with JavaScript */
+  height: 6px;
+  border-radius: 10px;
 }
