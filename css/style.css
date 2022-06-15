@@ -295,7 +295,13 @@ footer {
   display: grid;
   margin: auto;
   max-width: 80%;
-  grid-template-columns: auto auto;
+  margin-top: 7rem;
+  margin-bottom: 5rem;
+  grid-template-columns: 50% 50%;
+}
+
+.third-wrapper img {
+  height: 100%;
 }
 
 .wrapper {
@@ -304,22 +310,25 @@ footer {
   justify-content: space-between;
 }
 
-.wrapper :first-child {
+.experience {
   font-size: 3rem;
   font-weight: bold;
-  max-width: 30%;
+  max-width: 50%;
 }
 
-.wrapper :nth-child(2) {
+.sub-experience {
   font-size: 1.2rem;
   margin-top: 2rem;
+  line-height: 2rem;
+  max-width: 85%;
 }
+
 .grid {
   margin-top: 2.7rem;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
-  gap: 1.5em;
+  grid-template-rows: auto auto;
+  gap: 3em;
 }
 
 .pt1,
@@ -329,12 +338,27 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 1.7em;
+  align-items: center;
+  width: fit-content;
+  padding: 3em;
+  /* max-width: 80%; */
+  box-shadow: 0 4px 8px 0 var(--dark-bg-color),
+    0 6px 20px 0 var(--dark-bg-color);
+}
+
+.pt1:hover,
+.pt1:focus,
+.pt2:hover,
+.pt2:focus,
+.pt3:hover,
+.pt3:focus,
+.pt4:hover,
+.pt4:focus {
+  background-color: var(--highlight-color);
 }
 
 .pt1 {
-  background-color: var(--highlight-color);
-  max-width: 50%;
+  margin: auto;
 }
 
 .pt1 :first-child {
@@ -345,6 +369,51 @@ footer {
   font-size: 1.2rem;
 }
 .pt1 :nth-child(3) {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.pt2 {
+  margin: auto;
+}
+.pt2 :first-child {
+  font-size: 2rem;
+  line-height: 1.5em;
+}
+.pt2 :nth-child(2) {
+  font-size: 1.2rem;
+}
+.pt2 :nth-child(3) {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.pt3 {
+  margin: auto;
+}
+.pt3 :first-child {
+  font-size: 2rem;
+  line-height: 1.5em;
+}
+.pt3 :nth-child(2) {
+  font-size: 1.2rem;
+}
+.pt3 :nth-child(3) {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.pt4 {
+  margin: auto;
+}
+.pt4 :first-child {
+  font-size: 2rem;
+  line-height: 1.5em;
+}
+.pt4 :nth-child(2) {
+  font-size: 1.2rem;
+}
+.pt4 :nth-child(3) {
   font-size: 1.2rem;
   margin-top: 1rem;
 }
