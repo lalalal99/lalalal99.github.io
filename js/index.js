@@ -13,11 +13,10 @@ function httpGetAsync(url, callback) {
 }
 
 function func(list) {
-  repo = list[5];
-  //   list.forEach((repo) => {
-  newUrl = root + "/" + repo.name;
-  console.log(newUrl + " " + UrlExists(newUrl));
-  //   });
+  list.forEach((repo) => {
+    newUrl = root + "/" + repo.name;
+    console.log(newUrl + " " + UrlExists(newUrl));
+  });
 }
 
 function getRepos() {
