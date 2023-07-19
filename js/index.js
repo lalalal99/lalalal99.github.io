@@ -1,6 +1,8 @@
 user = "lalalal99";
 root = "https://" + user + ".github.io";
 
+// iframe = document.getElementsByTagName("iframe")[0];
+
 repos = [];
 
 function httpGetAsync(url, callback) {
@@ -12,16 +14,19 @@ function httpGetAsync(url, callback) {
   xmlHttp.send(null);
 }
 
-function func(list) {
-  list.forEach((repo) => {
-    newUrl = root + "/" + repo.name;
-    console.log(newUrl + " " + UrlExists(newUrl));
-  });
-}
+function func(list) {}
 
 function getRepos() {
+  iframe = document.getElementById("preview");
   url = "https://api.github.com/users/" + user + "/repos";
-  httpGetAsync(url, func);
+  httpGetAsync(url, (repos) => {
+    let repo = repos[5];
+    // repos.forEach((repo) => {
+    newUrl = root + "/" + repo.name;
+    console.log(newUrl + " " + UrlExists(newUrl));
+    iframe.src = newUrl;
+    // });
+  });
 }
 
 function UrlExists(url) {
@@ -29,6 +34,8 @@ function UrlExists(url) {
   http.open("HEAD", url, false);
   http.send();
   return http.status != 404;
+
+  //   fetch(url).then((response) => console.log(url, response.status != 404));
 }
 
-getRepos();
+// getRepos();
