@@ -24,7 +24,8 @@ function getRepos() {
     // repos.forEach((repo) => {
     newUrl = root + "/" + repo.name;
     console.log(newUrl + " " + UrlExists(newUrl));
-    iframe.src = newUrl;
+    // iframe.src = newUrl;
+    iframe.src = "https://lalalal99.github.io/maze-generator";
     // });
   });
 }
