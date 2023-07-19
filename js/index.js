@@ -19,7 +19,7 @@ function func(list) {}
 function getRepos() {
   url = "https://api.github.com/users/" + user + "/repos";
   httpGetAsync(url, (repos) => {
-    repos = repos.map((x) => (x.name, UrlExists(root + "/" + x.name)));
+    repos = repos.map((x) => x.name);
     console.log(repos);
     // iframe = document.getElementById("preview");
     // let repo = repos[5];
@@ -45,10 +45,8 @@ function UrlExists(url) {
   // return http.status != 404;
 
   var request;
-  if (window.XMLHttpRequest) 
-    request = new XMLHttpRequest();
-  else 
-    request = new ActiveXObject("Microsoft.XMLHTTP");
+  if (window.XMLHttpRequest) request = new XMLHttpRequest();
+  else request = new ActiveXObject("Microsoft.XMLHTTP");
   request.open("GET", url, false);
   request.send(); // there will be a 'pause' here until the response to come.
   // the object request will be actually modified
