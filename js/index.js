@@ -19,14 +19,20 @@ function func(list) {}
 function getRepos() {
   url = "https://api.github.com/users/" + user + "/repos";
   httpGetAsync(url, (repos) => {
-    iframe = document.getElementById("preview");
-    let repo = repos[5];
-    // repos.forEach((repo) => {
-    newUrl = root + "/" + repo.name;
-    console.log(newUrl + " " + UrlExists(newUrl));
-    // iframe.src = newUrl;
-    iframe.src = "https://lalalal99.github.io/maze-generator";
-    // });
+    // iframe = document.getElementById("preview");
+    // let repo = repos[5];
+    repos.forEach((repo) => {
+      newUrl = root + "/" + repo.name;
+      console.log(newUrl + " " + UrlExists(newUrl));
+      // // iframe.src = newUrl;
+      // iframe.src = "https://lalalal99.github.io/maze-generator";
+    });
+    repos.sort(compareFn);
+    console.log("-------------------------------------");
+    repos.forEach((repo) => {
+      newUrl = root + "/" + repo.name;
+      console.log(newUrl + " " + UrlExists(newUrl));
+    });
   });
 }
 
@@ -40,3 +46,10 @@ function UrlExists(url) {
 }
 
 // getRepos();
+function compareFn(a, b) {
+  aExists = UrlExists(a);
+  bExists = UrlExists(b);
+  if (aExists && !bExists) return 1;
+  if (bExists && !aExists) return -1;
+  if ((aExists && bExists) || (!aExists && !bExists)) return 0;
+}
