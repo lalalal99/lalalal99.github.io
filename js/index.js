@@ -17,9 +17,9 @@ function httpGetAsync(url, callback) {
 function func(list) {}
 
 function getRepos() {
-  iframe = document.getElementById("preview");
   url = "https://api.github.com/users/" + user + "/repos";
   httpGetAsync(url, (repos) => {
+    iframe = document.getElementById("preview");
     let repo = repos[5];
     // repos.forEach((repo) => {
     newUrl = root + "/" + repo.name;
