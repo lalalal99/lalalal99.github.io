@@ -45,9 +45,11 @@ function UrlExists(url) {
   // return http.status != 404;
 
   var request;
-  if (window.XMLHttpRequest) request = new XMLHttpRequest();
-  else request = new ActiveXObject("Microsoft.XMLHTTP");
-  request.open("GET", "http://www.mozilla.org", false);
+  if (window.XMLHttpRequest) 
+    request = new XMLHttpRequest();
+  else 
+    request = new ActiveXObject("Microsoft.XMLHTTP");
+  request.open("GET", url, false);
   request.send(); // there will be a 'pause' here until the response to come.
   // the object request will be actually modified
   return request.status != 404;
