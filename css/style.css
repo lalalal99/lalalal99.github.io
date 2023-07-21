@@ -1,6 +1,8 @@
 :root {
   --text-color: #2b2730;
   --font: verdana;
+  --background-color: rgb(247, 247, 242);
+  --hover-color: rgb(237, 237, 232);
 }
 
 /* * {
@@ -13,7 +15,7 @@ html {
 
 body {
   margin: 0;
-  background-color: rgb(247, 247, 242);
+  background-color: var(--background-color);
   color: var(--text-color);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   /* min-height: 100%; */
@@ -58,6 +60,7 @@ a {
   margin-right: 5em;
   margin-left: auto;
   border-radius: 45%;
+  height: 150px;
 }
 
 .info-details {
@@ -108,7 +111,21 @@ a {
   min-width: 75%;
   padding: 1em;
   border-radius: 1em;
-  border: 1px solid var(--text-color);
+  border: 2px solid var(--text-color);
   text-justify: auto;
   align-content: center;
+  transition: all 0.1s ease;
+}
+
+.projects-container-item:hover {
+  transform-origin: center;
+  transform: scale(1.1);
+}
+
+.color-hover:hover {
+  background-color: var(--hover-color);
+}
+
+.opacity {
+  opacity: 0;
 }

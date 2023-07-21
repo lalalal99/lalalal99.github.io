@@ -1,10 +1,13 @@
 user = "lalalal99";
 root = "https://" + user + ".github.io/";
 rootGit = "https://github.com/" + user + "/";
-
-// iframe = document.getElementsByTagName("iframe")[0];
+const millis = 40;
 
 repos = [];
+
+const sleep = (time) => {
+  return new Promise((resolve) => setTimeout(resolve, time));
+};
 
 function init() {
   getRepos();
@@ -23,15 +26,15 @@ function getRepos() {
   url = "https://api.github.com/users/" + user + "/repos";
   httpGetAsync(url, (repos) => {
     repos = repos.map((x) => [x.name, UrlExists(root + x.name)]);
-    // [repo] => [(repo, true)]
-    // console.log(repos);
+    // [repo] => [(repo, true/false)]
     repos.sort(compareFn);
     console.log(repos);
 
     projects = document.getElementsByClassName("projects-container")[0];
 
+    delay = 0;
     repos.forEach((repo) => {
-      projects.appendChild(createProjectCard(repo, null));
+      projects.appendChild(createProjectCard(repo, null, delay++));
     });
 
     // iframe = document.getElementById("preview");
@@ -56,29 +59,34 @@ function UrlExists(url) {
   return http.status != 404;
 }
 
-// getRepos();
 function compareFn(a, b) {
   // sorts by true/false, true first
-  aExists = a[1]; // UrlExists(root + "/" + a);
-  bExists = b[1]; // UrlExists(root + "/" + b);
+  aExists = a[1];
+  bExists = b[1];
   if (aExists && !bExists) return -1;
   if (bExists && !aExists) return 1;
   if ((aExists && bExists) || (!aExists && !bExists)) return 0;
 }
 
-function createProjectCard(title_exists, descr) {
+function createProjectCard(title_exists, descr, delay) {
   let [title, exists] = title_exists;
   const a = document.createElement("a");
-  const node = document.createTextNode(title);
   a.classList.add("projects-container-item");
+  a.classList.add("opacity");
   a.target = "_blank";
   a.rel = "noopener noreferrer";
   if (exists) {
     a.href = root + title;
+    a.classList.add("color-hover");
   } else {
     a.href = rootGit + title;
   }
 
+  title = title.replaceAll("-", " ");
+  const node = document.createTextNode(title);
   a.appendChild(node);
+  setTimeout(() => {
+    a.classList.remove("opacity");
+  }, delay * millis);
   return a;
 }
