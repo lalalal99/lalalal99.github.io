@@ -25,30 +25,20 @@ function httpGetAsync(url, callback) {
 function getRepos() {
   url = "https://api.github.com/users/" + user + "/repos";
   httpGetAsync(url, (repos) => {
-    repos = repos.map((x) => [x.name, UrlExists(root + x.name)]);
+    repos = repos.map((x) => ({
+      name: x.name,
+      descr: x.descr,
+      exists: UrlExists(root + x.name),
+    }));
     // [repo] => [(repo, true/false)]
     repos.sort(compareFn);
-    console.log(repos);
 
     projects = document.getElementsByClassName("projects-container")[0];
 
     delay = 0;
     repos.forEach((repo) => {
-      projects.appendChild(createProjectCard(repo, null, delay++));
+      projects.appendChild(createProjectCard(repo, delay++));
     });
-
-    // iframe = document.getElementById("preview");
-    // // let repo = repos[5];
-    // repos.forEach((repo) => {
-    //   newUrl = root + "/" + repo;
-    //   console.log(newUrl + " " + UrlExists(newUrl));
-    //   // // iframe.src = newUrl;
-    // iframe.src = "https://lalalal99.github.io/maze-generator";
-    // });
-    // repos.forEach((repo) => {
-    //   newUrl = root + "/" + repo;
-    //   console.log(newUrl + " " + UrlExists(newUrl));
-    // });
   });
 }
 
@@ -61,15 +51,15 @@ function UrlExists(url) {
 
 function compareFn(a, b) {
   // sorts by true/false, true first
-  aExists = a[1];
-  bExists = b[1];
+  aExists = a.exists;
+  bExists = b.exists;
   if (aExists && !bExists) return -1;
   if (bExists && !aExists) return 1;
   if ((aExists && bExists) || (!aExists && !bExists)) return 0;
 }
 
-function createProjectCard(title_exists, descr, delay) {
-  let [title, exists] = title_exists;
+function createProjectCard(repo, delay) {
+  let [title, descr, exists] = [repo.name, repo.descr, repo.exists];
   const a = document.createElement("a");
   a.classList.add("projects-container-item");
   a.classList.add("opacity");
@@ -77,7 +67,6 @@ function createProjectCard(title_exists, descr, delay) {
   a.rel = "noopener noreferrer";
   if (exists) {
     a.href = root + title;
-    a.classList.add("color-hover");
   } else {
     a.href = rootGit + title;
   }
