@@ -2,12 +2,17 @@
   --text-color: #222;
   --font: Arial, Helvetica, sans-serif;
   --background-color: #e9e9e9;
-  --hover-color: var(--text-color);
+  --background-color-light: #f9f9f9;
+  --hover-color: #333;
 }
 
 /* * {
   border: 1px solid black;
 } */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 html {
   height: 100%;
@@ -18,8 +23,6 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-size: larger;
-  /* font-weight: bold; */
-  /* font-family:Arial, Helvetica, sans-serif; */
   font-family: var(--font);
   display: flex;
   flex-direction: column;
@@ -31,11 +34,16 @@ a {
   z-index: 1;
 }
 
-.curriculum {
+::selection {
+  color: var(--background-color);
+  background: var(--hover-color);
+}
+
+/* .curriculum {
   position: absolute;
   right: 12.5%;
   top: 1em;
-}
+} */
 
 .main-container {
   width: 75%;
@@ -46,46 +54,58 @@ a {
 }
 
 .info-container {
-  display: grid;
-  grid-template: auto / 25% auto;
+  /* display: grid;
+  grid-template: auto / 25% auto; */
   padding: 1.5em;
   /* padding-bottom: 5em; */
   background-color: var(--text-color);
-  color: var(--background-color);
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   max-height: 8em;
+  display: flex;
+  justify-content: end;
+
+  /* margin-left: auto; */
+
+  /* display: block;
+  float: right; */
 }
 
-.img {
+.email,
+.curriculum {
+  color: var(--background-color);
+  padding: 0 4em;
+}
+
+/* .img {
   margin-right: 5em;
   margin-left: auto;
   border-radius: 45%;
   height: 150px;
-}
+} */
 
-.info-details {
+/* .info-details {
   display: grid;
-  /* grid-template: auto auto / auto auto; */
+  grid-template: auto auto / auto auto;
   grid-template-rows: auto auto;
   grid-auto-flow: column dense;
   justify-items: center;
   align-items: center;
-}
+} */
 
 /* Progetti */
 
 .projects {
   display: flex;
   flex-direction: column;
-  margin-top: 10em;
+  margin-top: 3em;
 }
 
 .projects-title {
   position: relative;
-  padding-left: 60px;
+  padding-left: 40px;
   border-left: 10px solid var(--text-color);
   left: 200px;
 
@@ -96,7 +116,22 @@ a {
   /* border-left: 2px solid var(--text-color); */
 }
 
-.projects-container {
+.viewables-title {
+  position: relative;
+  left: 250px;
+  border-left: 10px solid var(--text-color);
+  padding-left: 16px;
+}
+
+.code-title {
+  position: relative;
+  left: 250px;
+  border-left: 10px solid var(--text-color);
+  padding-left: 16px;
+}
+
+.projects-viewable,
+.projects-code {
   display: grid;
   padding: 2em;
   width: 70%;
@@ -122,7 +157,10 @@ a {
   min-width: 75%;
   padding: 1em;
   border-radius: 2em;
+
   border: 2px solid var(--text-color);
+  background-color: var(--background-color-light);
+
   text-justify: auto;
   align-content: center;
   transition: all 0.1s ease;
@@ -137,8 +175,8 @@ a {
   color: var(--background-color);
 }
 
-.opacity {
-  opacity: 0;
+.invisible {
+  display: none;
 }
 
 /* Curriculum */
@@ -147,7 +185,7 @@ a {
   border-left: 10px solid var(--text-color);
   position: relative;
   left: -70px;
-  padding-left: 60px;
+  padding-left: 40px;
 }
 
 .pdf-container {
@@ -164,27 +202,23 @@ a {
 }
 
 /* Scrollbar */
-/* width*/
+
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 12px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: var(--background-color);
-  /* background: var(--text-color); */
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--text-color);
   /* background: var(--background-color); */
   border-radius: 2em;
-  border: 2px solid var(--background-color);
+  border: 1px solid var(--background-color);
   /* border: 2px solid var(--text-color); */
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-} 
+}

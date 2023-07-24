@@ -4,35 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Francesco Bucci</title>
-    <link href="https://fonts.cdnfonts.com/css/apercu-pro" rel="stylesheet">
-                
-    <!-- <link rel="stylesheet" href="css/reset.css" /> -->
+    <link href="https://fonts.cdnfonts.com/css/apercu-pro" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="css/loader.css" />
+
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/index.js"></script>
+    <script defer src="js/index.js"></script>
   </head>
   <body onload="getRepos()">
     <!-- <div class="header"> -->
     <!-- </div> -->
+
     <div class="main-container">
-      <a href="curriculum/curriculum.html" class="curriculum">Curriculum</a>
       <div class="info-container">
-        <img class="img" src="https://placehold.co/150x150" alt="" />
-        <div class="info-details">
-          <span>Francesco Bucci</span>
+        <!-- <div class="info-details"> -->
+        <a class="curriculum" href="#curriculum">Curriculum</a>
+        <!-- <span>Francesco Bucci</span>
           <span>Genzano di Roma / Italia</span>
-          <span>1999</span>
-          <span>francesco.bucci99@hotmail.com</span>
-        </div>
+          <span>1999</span> -->
+        <a class="email" href="mailto:francesco.bucci99@hotmail.com"> <span class="material-symbols-outlined"> mail </span> E-mail</a>
+        <!-- </div> -->
       </div>
       <div class="projects">
         <h2 class="projects-title"><strong>Progetti</strong></h2>
         <div class="projects-container">
-          <!-- progetti come cards -->
-          <!-- <a class="projects-container-item" href="http://www.google.com" target="_blank" rel="noopener noreferrer">Lorem, ipsum dolor.</a> -->
+          <div class="viewables">
+            <h3 class="viewables-title">Visualizzabili</h3>
+            <div class="projects-viewable">
+              <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+          <div class="code">
+            <h3 class="code-title">Codice</h3>
+            <div class="projects-code">
+              <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="pdf-container">
-        <h2 class="pdf-title">Curriculum</h2>
+        <h2 id="curriculum" class="pdf-title">Curriculum</h2>
         <iframe src="files/CV - Francesco Bucci.pdf#view=FitH&toolbar=0&navpanes=0" frameborder="0" class="iframe"></iframe>
       </div>
     </div>
