@@ -25,28 +25,31 @@ function getRepos() {
       .map((x) => ({
         name: x.name,
         descr: x.descr,
-        exists: UrlExists(root + x.name),
+        exists: urlExists(root + x.name),
       }))
       .filter((y) => y.name !== "lalalal99.github.io")
       .sort(compareFn);
 
-    document.getElementsByClassName("projects-container")[0].classList.remove("invisible");
+    projects_container = document.getElementsByClassName("projects-container")[0]
+    projects_container.classList.remove("invisible");
     projects_viewable = document.getElementsByClassName("projects-viewable")[0];
     projects_code = document.getElementsByClassName("projects-code")[0];
 
-    projects_viewable.innerHTML = ""
-    projects_code.innerHTML = ""
+    projects_viewable.innerHTML = "";
+    projects_code.innerHTML = "";
 
-    delay = 2;
     repos.forEach((repo) => {
-      if (repo.exists) projects_viewable.appendChild(createProjectCard(repo, delay, true));
-      projects_code.appendChild(createProjectCard(repo, delay, false));
-      delay++;
+      if (repo.exists) projects_viewable.appendChild(createProjectCard(repo, true));
+      projects_code.appendChild(createProjectCard(repo, false));
     });
+
+    if (projects_code.innerHTML === "") {
+      projects_container.innerHTML = "Errore";
+    }
   });
 }
 
-function UrlExists(url) {
+function urlExists(url) {
   // check if the page exists, returns true/false
   var http = new XMLHttpRequest();
   http.open("HEAD", url, false);
@@ -63,10 +66,10 @@ function compareFn(a, b) {
   if ((aExists && bExists) || (!aExists && !bExists)) return 0;
 }
 
-function createProjectCard(repo, delay, viewable) {
+function createProjectCard(repo, viewable) {
   //returns an a element
   // <a class="projects-container-item" href="http://www.google.com" target="_blank" rel="noopener noreferrer">Lorem, ipsum dolor.</a>
-  
+
   let [title, descr, exists] = [repo.name, repo.descr, repo.exists];
   const a = document.createElement("a");
   a.classList.add("invisible");
@@ -82,8 +85,6 @@ function createProjectCard(repo, delay, viewable) {
   title = title.replaceAll("-", " ");
   const node = document.createTextNode(title);
   a.appendChild(node);
-  setTimeout(() => {
-    a.classList.remove("invisible");
-  }, delay * millis);
+  a.classList.remove("invisible");
   return a;
 }
