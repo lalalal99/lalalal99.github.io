@@ -249,7 +249,10 @@ a {
 @media screen and (max-width: 700px) {
   body {
     font-size: medium;
-    background-color: red;
+  }
+
+  .main-container {
+    width: 100%;
   }
 
   iframe {
