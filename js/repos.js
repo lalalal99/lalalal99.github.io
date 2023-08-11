@@ -23,7 +23,6 @@ function getRepos() {
         descr: x.descr,
         exists: urlExists(root + x.name),
       }))
-      .filter((y) => y.name !== "lalalal99.github.io")
       .sort(compareFn);
 
     projects_container = document.getElementsByClassName("projects-container")[0]
@@ -35,7 +34,7 @@ function getRepos() {
     projects_code.innerHTML = "";
 
     repos.forEach((repo) => {
-      if (repo.exists) projects_viewable.appendChild(createProjectCard(repo, true));
+      if (repo.exists && repo.name !== "lalalal99.github.io") projects_viewable.appendChild(createProjectCard(repo, true));
       projects_code.appendChild(createProjectCard(repo, false));
     });
 
