@@ -245,8 +245,8 @@ a {
   background: #555;
 }
 
-/* width 500px */
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 900px) {
   body {
     font-size: medium;
   }
@@ -265,7 +265,6 @@ a {
     padding: 2em;
     width: 70%;
     margin: auto;
-    /* grid-auto-flow: column; */
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: center;
