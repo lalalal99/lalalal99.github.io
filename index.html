@@ -10,27 +10,11 @@
     <link rel="stylesheet" href="css/loader.css" />
     <link rel="stylesheet" href="css/style.css" />
 
+    <script src="js/repos.js"></script>
     <script src="js/index.js"></script>
-    <script>
-      window.onscroll = function () {
-        let invisible_class = "invisible";
-        let up_icon = document.getElementsByClassName("up-icon")[0];
-        if (window.pageYOffset == "0") up_icon.classList.add(invisible_class);
-        else up_icon.classList.remove(invisible_class);
-      };
-
-      function CV_Downloadable() {
-        if (window.screen.width <= 700) console.log(1);
-      }
-
-      window.addEventListener("onload", CV_Downloadable());
-      window.addEventListener("resize", CV_Downloadable());
-    </script>
+    
   </head>
   <body onload="getRepos()">
-    <!-- <div class="header"> -->
-    <!-- </div> -->
-
     <div class="main-container">
       <div class="info-container">
         <a class="curriculum hover-underline-animation" href="#curriculum"><span class="material-symbols-outlined"> description </span><span id="cv"> Curriculum</span> </a>
